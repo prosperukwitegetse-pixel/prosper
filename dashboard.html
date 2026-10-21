@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sidebar Menu -->
+  <div class="sidebar">
+    <div>
+      <div class="sidebar-brand">
+        <i class="fa-solid fa-chart-line"></i> MyDashboard
+      </div>
+      <div class="sidebar-menu">
+        <button onclick="switchTab('home')" id="btn-home" class="active">
+          <i class="fa-solid fa-house"></i> Home
+        </button>
+        <button onclick="switchTab('analytics')" id="btn-analytics">
+          <i class="fa-solid fa-chart-pie"></i> Analytics
+        </button>
+        <button onclick="switchTab('users')" id="btn-users">
+          <i class="fa-solid fa-users"></i> Users (Approval)
+        </button>
+        <button onclick="switchTab('settings')" id="btn-settings">
+          <i class="fa-solid fa-gear"></i> Settings
+        </button>
+      </div>
+    </div>
+    <button class="btn-logout" onclick="logout()">
+      <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </button>
+  </div>
+
+  <!-- Main Content Body -->
+  <div class="main-content">
+    
+    <!-- Home Tab -->
+    <div id="home" class="content-section active">
+      <h2 id="welcomeTitle">🏠 Ikaze kuri Home</h2>
+      <p>Aha ni ho hagaragara amakuru rusange n'incamake y'imikorere ya dashboard yawe.</p>
+
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #38bdf8;"><i class="fa-solid fa-users"></i></div>
+          <div class="stat-info">
+            <h3 id="totalUsersCount">0</h3>
+            <p>Abakoresha Bose</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #f59e0b;"><i class="fa-solid fa-clock"></i></div>
+          <div class="stat-info">
+            <h3 id="pendingUsersCount">0</h3>
+            <p>Bategereje Approval</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #10b981;"><i class="fa-solid fa-user-shield"></i></div>
+          <div class="stat-info">
+            <h3 id="adminCount">1</h3>
+            <p>Ba Admin</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="userApprovalStatusBox"></div>
+    </div>
+
+    <!-- Analytics Tab -->
+    <div id="analytics" class="content-section">
+      <h2>📊 Imibare n'Ubusesengura</h2>
+      <p>Raporo zose n'imibare y'imikorere.</p>
+    </div>
+
+    <!-- Users Tab -->
+    <div id="users" class="content-section">
+      <h2>👥 Urutonde rw'Abakoresha n'Approval</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Izina</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Settings Tab -->
+    <div id="settings" class="content-section">
+      <h2>⚙️ Igenamiterere</h2>
+      <p>Ihindurwa ry'amakuru y'umwirondoro.</p>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
